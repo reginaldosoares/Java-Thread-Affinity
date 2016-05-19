@@ -38,8 +38,10 @@ public class AffinityLockMain {
     private static class SleepRunnable implements Runnable {
         public void run() {
             AffinityLock al = AffinityLock.acquireLock();
+            System.out.println(AffinityLock.dumpLocks());
+            // check lock
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1500); // 1000
             } catch (InterruptedException e) {
             } finally {
                 al.release();
